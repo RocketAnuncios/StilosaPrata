@@ -123,7 +123,7 @@
             <!-- CPR -->
             <div class="metric-card bg-white p-6 rounded-2xl border-l-4 border-green-500 shadow-sm">
                 <p class="text-sm font-semibold text-gray-500 uppercase tracking-wider">Custo por Conversa</p>
-                <p class="text-3xl font-bold text-gray-900 mt-1">R$ 3,91</p>
+                <p class="text-3xl font-bold text-gray-900 mt-1">R$ 5,30</p>
                 <p class="text-xs text-gray-400 mt-1">Eficiência de conversão</p>
             </div>
 
@@ -290,13 +290,62 @@
             </div>
         </section>
 
+        <!-- Seção: Dados para Pagamento -->
+        <section class="bg-white rounded-2xl shadow-lg p-6 mb-12">
+            <h2 class="text-xl font-bold text-gray-800 mb-4">💰 Dados para Pagamento</h2>
+            <p class="text-sm text-gray-600 mb-4">Use os dados abaixo para realizar o pagamento da mensalidade via PIX:</p>
+            
+            <div class="space-y-3 text-sm">
+                <div>
+                    <span class="font-medium text-gray-700">Chave Pix (CPF):</span>
+                    <span id="pix-key" class="ml-1 font-mono text-gray-900">600.602.363-61</span>
+                </div>
+                <div>
+                    <span class="font-medium text-gray-700">Banco:</span>
+                    <span class="ml-1 text-gray-900">NuBank</span>
+                </div>
+                <div>
+                    <span class="font-medium text-gray-700">Titular:</span>
+                    <span class="ml-1 text-gray-900">Carlos Samuel De Paula Neto</span>
+                </div>
+            </div>
+
+            <button id="copy-pix-btn" class="mt-4 flex items-center justify-center gap-2 bg-green-500 hover:bg-green-600 text-white font-medium py-2 px-4 rounded-lg transition shadow-md hover:shadow-lg">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2M8 5h8" />
+                </svg>
+                Copiar Chave PIX
+            </button>
+
+            <p id="copy-feedback" class="mt-2 text-xs text-green-600 font-medium opacity-0 transition-opacity"></p>
+        </section>
+
         <!-- Rodapé -->
         <footer class="mt-12 text-center text-gray-500 text-sm">
             <p>Relatório gerado automaticamente para <span class="font-semibold text-primary">Loja Stilosa Prata</span></p>
             <p class="mt-1">© 2025 – Todos os direitos reservados.</p>
         </footer>
     </div>
+
+    <script>
+        document.getElementById('copy-pix-btn').addEventListener('click', async () => {
+            const pixKey = '600.602.363-61';
+            try {
+                await navigator.clipboard.writeText(pixKey);
+                const feedback = document.getElementById('copy-feedback');
+                feedback.textContent = 'Chave PIX copiada para a área de transferência!';
+                feedback.classList.remove('opacity-0');
+                feedback.classList.add('opacity-100');
+                setTimeout(() => {
+                    feedback.classList.remove('opacity-100');
+                    feedback.classList.add('opacity-0');
+                }, 3000);
+            } catch (err) {
+                console.error('Falha ao copiar:', err);
+                alert('Não foi possível copiar a chave PIX. Copie manualmente: ' + pixKey);
+            }
+        });
+    </script>
 </body>
 </html>
-
 
