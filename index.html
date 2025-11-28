@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Relatório de Performance - Stilosa Prata</title>
+    <link rel="icon" href="https://i.imgur.com/7Oe9LYh.png" type="image/png" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0D9488',
+                        secondary: '#14B8A6',
+                        accent: '#E0F2F2',
+                        light: '#F8FAFC',
+                        dark: '#0F172A',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                },
+            },
+        };
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;600;700;800&display=swap" rel="stylesheet" />
+    <style>
+        body {
+            background: linear-gradient(135deg, #f0f9ff 0%, #f7f9fb 100%);
+            font-family: 'Inter', sans-serif;
+        }
+        .metric-card {
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+        }
+        .metric-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+        }
+        .table-row:nth-child(even) {
+            background-color: #fafafa;
+        }
+        .table-row:hover {
+            background-color: #f0fdfa;
+        }
+        .header-image {
+            width: 100%;
+            max-width: 200px;
+            height: auto;
+            object-fit: contain;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+        .technical-image {
+            width: 100%;
+            height: auto;
+            max-height: 400px;
+            object-fit: contain;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            border: 1px solid #e2e8f0;
+        }
+        .indicator-card {
+            background: white;
+            border-radius: 1rem;
+            padding: 1.25rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .indicator-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .section-title {
+            @apply text-xl font-bold text-gray-800 mb-4;
+        }
+        .section-subtitle {
+            @apply text-sm text-gray-600 mb-6;
+        }
+    </style>
+</head>
+<body class="text-gray-800">
+
+    <div class="container mx-auto px-4 md:px-8 py-6 max-w-7xl">
+        <!-- Cabeçalho com Imagem + Título -->
+        <header class="flex flex-col md:flex-row items-center justify-between gap-6 mb-10 bg-white rounded-2xl p-6 shadow-lg">
+            <!-- Imagem (à esquerda no desktop, acima na mobile) -->
+            <div class="w-full md:w-1/3 flex justify-center">
+                <img src="https://i.imgur.com/7Oe9LYh.png" alt="Logo Stilosa Prata" class="header-image" />
+            </div>
+
+            <!-- Texto (à direita no desktop, abaixo na mobile) -->
+            <div class="w-full md:w-2/3 text-center md:text-left">
+                <h1 class="text-3xl md:text-4xl font-bold text-gray-900">Loja <span class="text-primary">Stilosa Prata</span></h1>
+                <p class="text-lg text-gray-600 mt-2">Relatório de Performance de Anúncios</p>
+                <p class="text-gray-500 mt-1">Período: <span class="font-medium">29 de out. de 2025</span> a <span class="font-medium">27 de nov. de 2025</span></p>
+                <div class="flex items-center justify-center md:justify-start mt-3 text-sm text-gray-500">
+                    <svg class="w-4 h-4 text-primary mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                    </svg>
+                    <span class="font-semibold">Atualizado em:</span> <span class="ml-1">27 de novembro de 2025</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Métricas Principais -->
+        <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+            <!-- Investimento Total -->
+            <div class="metric-card bg-white p-6 rounded-2xl border-l-4 border-primary shadow-sm">
+                <p class="text-sm font-semibold text-gray-500 uppercase tracking-wider">Investimento Total</p>
+                <p class="text-3xl font-bold text-gray-900 mt-1">R$ 668,43</p>
+                <p class="text-xs text-gray-400 mt-1">Valor gasto em anúncios</p>
+            </div>
+
+            <!-- Conversas Iniciadas -->
+            <div class="metric-card bg-white p-6 rounded-2xl border-l-4 border-secondary shadow-sm">
+                <p class="text-sm font-semibold text-gray-500 uppercase tracking-wider">Conversas Iniciadas</p>
+                <p class="text-3xl font-bold text-gray-900 mt-1">171</p>
+                <p class="text-xs text-gray-400 mt-1">Interações com clientes</p>
+            </div>
+
+            <!-- CPR -->
+            <div class="metric-card bg-white p-6 rounded-2xl border-l-4 border-green-500 shadow-sm">
+                <p class="text-sm font-semibold text-gray-500 uppercase tracking-wider">Custo por Conversa</p>
+                <p class="text-3xl font-bold text-gray-900 mt-1">R$ 3,91</p>
+                <p class="text-xs text-gray-400 mt-1">Eficiência de conversão</p>
+            </div>
+
+            <!-- Cliques -->
+            <div class="metric-card bg-white p-6 rounded-2xl border-l-4 border-amber-500 shadow-sm">
+                <p class="text-sm font-semibold text-gray-500 uppercase tracking-wider">Cliques (Todos)</p>
+                <p class="text-3xl font-bold text-gray-900 mt-1">1.063</p>
+                <p class="text-xs text-gray-400 mt-1">Interesses gerados</p>
+            </div>
+        </section>
+
+        <!-- Seção: Anúncios para WhatsApp -->
+        <section class="mb-12">
+            <h2 class="section-title">📱 Anúncios para WhatsApp</h2>
+            <p class="section-subtitle">Desempenho dos anúncios direcionados para conversas via WhatsApp.</p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Conversas por Mensagem -->
+                <div class="indicator-card">
+                    <p class="text-sm font-medium text-gray-500">Conversas por Mensagem</p>
+                    <p class="text-2xl font-bold text-gray-900 mt-1">128</p>
+                    <p class="text-xs text-gray-400 mt-1">Clientes entraram em contato</p>
+                </div>
+                <!-- Cliques -->
+                <div class="indicator-card">
+                    <p class="text-sm font-medium text-gray-500">Cliques (Todos)</p>
+                    <p class="text-2xl font-bold text-gray-900 mt-1">738</p>
+                    <p class="text-xs text-gray-400 mt-1">Interesses gerados</p>
+                </div>
+                <!-- CPR -->
+                <div class="indicator-card">
+                    <p class="text-sm font-medium text-gray-500">Custo por Conversa</p>
+                    <p class="text-2xl font-bold text-gray-900 mt-1">R$ 3,52</p>
+                    <p class="text-xs text-gray-400 mt-1">Eficiência de conversão</p>
+                </div>
+                <!-- Alcance -->
+                <div class="indicator-card">
+                    <p class="text-sm font-medium text-gray-500">Alcance</p>
+                    <p class="text-2xl font-bold text-gray-900 mt-1">15.472</p>
+                    <p class="text-xs text-gray-400 mt-1">Pessoas únicas alcançadas</p>
+                </div>
+                <!-- Impressões -->
+                <div class="indicator-card">
+                    <p class="text-sm font-medium text-gray-500">Impressões</p>
+                    <p class="text-2xl font-bold text-gray-900 mt-1">30.448</p>
+                    <p class="text-xs text-gray-400 mt-1">Visualizações dos anúncios</p>
+                </div>
+                <!-- Visitas ao Perfil IG -->
+                <div class="indicator-card">
+                    <p class="text-sm font-medium text-gray-500">Visitas ao Perfil Instagram</p>
+                    <p class="text-2xl font-bold text-gray-900 mt-1">517</p>
+                    <p class="text-xs text-gray-400 mt-1">Tráfego direto para o perfil</p>
+                </div>
+                <!-- Engajamentos -->
+                <div class="indicator-card">
+                    <p class="text-sm font-medium text-gray-500">Engajamentos com Post</p>
+                    <p class="text-2xl font-bold text-gray-900 mt-1">4.328</p>
+                    <p class="text-xs text-gray-400 mt-1">Curtidas, comentários, compartilhamentos</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção: Anúncios para Site -->
+        <section class="mb-12">
+            <h2 class="section-title">🛒 Anúncios para Site</h2>
+            <p class="section-subtitle">Desempenho dos anúncios direcionados para vendas no site.</p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Visualizações da Página de Destino -->
+                <div class="indicator-card">
+                    <p class="text-sm font-medium text-gray-500">Visualizações da Página</p>
+                    <p class="text-2xl font-bold text-gray-900 mt-1">129</p>
+                    <p class="text-xs text-gray-400 mt-1">Visitantes na página de destino</p>
+                </div>
+                <!-- Contatos por Mensagem -->
+                <div class="indicator-card">
+                    <p class="text-sm font-medium text-gray-500">Contatos por Mensagem</p>
+                    <p class="text-2xl font-bold text-gray-900 mt-1">6</p>
+                    <p class="text-xs text-gray-400 mt-1">Contatos via mensagem</p>
+                </div>
+                <!-- Cliques -->
+                <div class="indicator-card">
+                    <p class="text-sm font-medium text-gray-500">Cliques (Todos)</p>
+                    <p class="text-2xl font-bold text-gray-900 mt-1">488</p>
+                    <p class="text-xs text-gray-400 mt-1">Interesses gerados</p>
+                </div>
+                <!-- Alcance -->
+                <div class="indicator-card">
+                    <p class="text-sm font-medium text-gray-500">Alcance</p>
+                    <p class="text-2xl font-bold text-gray-900 mt-1">9.783</p>
+                    <p class="text-xs text-gray-400 mt-1">Pessoas únicas alcançadas</p>
+                </div>
+                <!-- Impressões -->
+                <div class="indicator-card">
+                    <p class="text-sm font-medium text-gray-500">Impressões</p>
+                    <p class="text-2xl font-bold text-gray-900 mt-1">22.496</p>
+                    <p class="text-xs text-gray-400 mt-1">Visualizações dos anúncios</p>
+                </div>
+                <!-- Visitas ao Perfil IG -->
+                <div class="indicator-card">
+                    <p class="text-sm font-medium text-gray-500">Visitas ao Perfil Instagram</p>
+                    <p class="text-2xl font-bold text-gray-900 mt-1">408</p>
+                    <p class="text-xs text-gray-400 mt-1">Tráfego direto para o perfil</p>
+                </div>
+                <!-- Engajamentos -->
+                <div class="indicator-card">
+                    <p class="text-sm font-medium text-gray-500">Engajamentos com Post</p>
+                    <p class="text-2xl font-bold text-gray-900 mt-1">2.435</p>
+                    <p class="text-xs text-gray-400 mt-1">Curtidas, comentários, compartilhamentos</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tabela Detalhada -->
+        <section class="bg-white rounded-2xl shadow-lg overflow-hidden mb-12">
+            <div class="px-6 py-5 border-b border-gray-100">
+                <h2 class="text-xl font-bold text-gray-800">Desempenho por Conjunto de Anúncios</h2>
+                <p class="text-sm text-gray-500 mt-1">Detalhes dos principais conjuntos ativos</p>
+            </div>
+
+            <!-- Aviso para mobile -->
+            <div class="md:hidden bg-amber-50 border-l-4 border-amber-400 p-3 rounded mx-6 mb-4">
+                <p class="text-sm text-amber-800 flex items-center">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 0H3m12 0v-4a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2h10a2 2 0 002-2z" />
+                    </svg>
+                    Deslize para o lado para ver todas as colunas.
+                </p>
+            </div>
+
+            <div class="overflow-x-auto px-6">
+                <table class="min-w-full text-sm">
+                    <thead class="bg-gray-50">
+                        <tr>
+                            <th class="py-3 px-4 text-left font-semibold text-gray-600">Conjunto de Anúncio</th>
+                            <th class="py-3 px-4 text-left font-semibold text-gray-600">Investimento (BRL)</th>
+                            <th class="py-3 px-4 text-left font-semibold text-gray-600">Conversas</th>
+                            <th class="py-3 px-4 text-left font-semibold text-gray-600">Cliques</th>
+                            <th class="py-3 px-4 text-left font-semibold text-gray-600">CPR (BRL)</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-gray-100">
+                        <tr class="table-row hover:bg-accent/50 transition">
+                            <td class="py-4 px-4 font-medium text-gray-900">WHATSAPP</td>
+                            <td class="py-4 px-4 text-gray-700">R$ 450,99</td>
+                            <td class="py-4 px-4 text-primary font-semibold">128</td>
+                            <td class="py-4 px-4 text-gray-700">738</td>
+                            <td class="py-4 px-4 text-gray-900 font-medium">R$ 3,52</td>
+                        </tr>
+                        <tr class="table-row hover:bg-accent/50 transition">
+                            <td class="py-4 px-4 font-medium text-gray-900">ALIANÇAS — SITE</td>
+                            <td class="py-4 px-4 text-gray-700">R$ 238,82</td>
+                            <td class="py-4 px-4 text-primary font-semibold">—</td>
+                            <td class="py-4 px-4 text-gray-700">488</td>
+                            <td class="py-4 px-4 text-gray-900 font-medium">—</td>
+                        </tr>
+                        <tr class="table-row hover:bg-accent/50 transition">
+                            <td class="py-4 px-4 font-medium text-gray-900">BRINCOS E ALIANÇAS</td>
+                            <td class="py-4 px-4 text-gray-700">R$ 217,09</td>
+                            <td class="py-4 px-4 text-primary font-semibold">43</td>
+                            <td class="py-4 px-4 text-gray-700">325</td>
+                            <td class="py-4 px-4 text-gray-900 font-medium">R$ 5,05</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Nova Seção: Dados Técnicos -->
+        <section class="bg-white rounded-2xl shadow-lg p-6 mb-12">
+            <h2 class="text-xl font-bold text-gray-800 mb-4">📊 Dados Técnicos</h2>
+            <p class="text-sm text-gray-600 mb-6">Visão detalhada dos dados brutos do Facebook Ads Manager.</p>
+            <div class="flex justify-center">
+                <img src="https://i.imgur.com/iJe2Spn.png" alt="Dados Técnicos do Facebook Ads Manager" class="technical-image" />
+            </div>
+            <div class="mt-4 text-xs text-gray-500 text-center">
+                Captura de tela dos dados técnicos extraídos do painel de anúncios.
+            </div>
+        </section>
+
+        <!-- Rodapé -->
+        <footer class="mt-12 text-center text-gray-500 text-sm">
+            <p>Relatório gerado automaticamente para <span class="font-semibold text-primary">Loja Stilosa Prata</span></p>
+            <p class="mt-1">© 2025 – Todos os direitos reservados.</p>
+        </footer>
+    </div>
+</body>
+</html>
+
